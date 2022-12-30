@@ -10,20 +10,12 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace TaxiDispatcher
-
-
 {
-
     public partial class Form1 : Form
     {
-
-
-
-        
         public Form1()
         {
             InitializeComponent();
-
         }
 
         Taxi[] dispacher = { 
@@ -37,24 +29,17 @@ namespace TaxiDispatcher
 
         //Store the passengers served for each taxi
         int[] driver_served = { 0, 0, 0, 0, 0, 0 };
-
         //Store the calls for each taxi
         int[] calls = { 0, 0, 0, 0, 0, 0 };
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-
-
             //Use random method to reach random dispacher
             Random random = new Random();
             //random range from 0 to total taxi class members
             int rand = random.Next(0, dispacher.Length);
 
-
-            //GetPassenger() should be call only once each time press bottom, so create variable to store its return value
             int passengers = dispacher[rand].getPassages();
-
-            // Simplify for future code
             string taxi = dispacher[rand].getTaxiID();
             string driver = dispacher[rand].getDriver();
             string maker = dispacher[rand].getMaker();
@@ -99,7 +84,7 @@ namespace TaxiDispatcher
             //get total served value
             int totals = total.getServed();
 
-            //ger average served
+            //get average served
             double avg = Decimal.ToDouble(totals) / 6;
             txtReport.Text = "CTC Taxi served a total of "+total.getServed()+" passengers today. \r\n" + dispacher[0].getTaxiID()+ 
                 "      "+dispacher[1].getTaxiID() + "      " + dispacher[2].getTaxiID() + "      " + dispacher[3].getTaxiID() + "      " + dispacher[4].getTaxiID() + "      " +
